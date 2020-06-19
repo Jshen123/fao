@@ -14,6 +14,7 @@ const io = SocketIO(httpServer);
 
 async function startServer() {
 	const lobby = handleSockets(io); // socket.io app logic
+	console.log(lobby);
 
 	app.use(compress()); // gzip responses
 
