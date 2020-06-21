@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<title>Fake Artist Online</title>
+		<title>Online Deduction Drawing Game</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<meta
 			name="description"
@@ -30,8 +30,8 @@
 			<home-view v-if="state.view === 'home'"></home-view>
 			<rules-view v-if="state.view === 'rules'"></rules-view>
             <faq-view v-if="state.view === 'faq'"></faq-view>
-            <access-view v-if="state.view === 'login'"></access-view>
-			<setup-view
+            
+            <setup-view
 				v-if="state.view === 'setup'"
 				:room-code="state.gameState === undefined ? undefined : state.gameState.roomCode"
 				:usernames="usernames"

@@ -21,7 +21,7 @@
 						>.
                     </p>
 					<p>
-						Enjoy the game? Send a tip:
+						Enjoy the online version? Send a tip to the developer:
 						<a href="https://ko-fi.com/krackocloud">Ko-fi</a>
 					</p>
 				</div>

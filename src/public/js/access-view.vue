@@ -4,7 +4,7 @@
             <h1 class='title'>Please enter the access code</h1>
         </div>
         <div class="flex-center">    
-            <input type="text" class="password-input" name="password" @change="handleInput" @input="handleInput" placeholder="Password" />
+            <input type="text" class="password-input" name="Access Code" @change="handleInput" @input="handleInput" placeholder="Access Code" />
         </div>
         <div class="flex-center">
             <button type="button" id="access-button" class="btn big primary" v-on:click="access()">Access</button>

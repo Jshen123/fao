@@ -23,9 +23,9 @@ const Store = {
 	setPassword(password) {
 		this.state.password = password;
 		// if localstorage password is the same as server password, redirect user to homepage
-		// if (localStorage.password == password) {
-		// this.setView(VIEW.HOME);
-		// }
+		if (localStorage.password == password) {
+			this.setView(VIEW.HOME);
+		}
 	},
 	setUsername(username) {
 		this.state.username = username;
