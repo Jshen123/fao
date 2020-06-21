@@ -33,6 +33,10 @@ function handleSockets(io) {
 }
 
 const MessageHandlers = {
+	[MESSAGE.ACCESS](io, sock, data) {
+		const password = process.env.PASSWORD;
+		sock.emit(MESSAGE.ACCESS, { password: password });
+	},
 	[MESSAGE.CREATE_ROOM](io, sock, data) {
 		GamePrecond.sockDoesNotHaveUser(sock);
 		GamePrecond.lobbyIsNotFull();
@@ -47,7 +51,6 @@ const MessageHandlers = {
 			roomState: ClientAdapter.generateStateJson(newRoom),
 		});
 	},
-
 	[MESSAGE.JOIN_ROOM](io, sock, data) {
 		let roomToJoin = Lobby.getRoomByCode(data.roomCode);
 

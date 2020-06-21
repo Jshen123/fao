@@ -5,6 +5,7 @@ import SocketIO from 'socket.io';
 import compress from 'compression';
 import handleSockets from './socket-handler.js';
 import { loadPrompts } from './prompts/prompts-api.js';
+require('dotenv').config();
 
 const app = express();
 const httpServer = http.createServer(app);
@@ -14,7 +15,6 @@ const io = SocketIO(httpServer);
 
 async function startServer() {
 	const lobby = handleSockets(io); // socket.io app logic
-	console.log(lobby);
 
 	app.use(compress()); // gzip responses
 

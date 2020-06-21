@@ -12,12 +12,20 @@ const Store = {
 	state: {
 		username: localStorage.username || '',
 		sfxDisabled: localStorage.sfxDisabled === 'true',
-		view: VIEW.HOME,
+		view: VIEW.ACCESS,
 		previousView: VIEW.HOME,
 		gameState: undefined,
 		createWarning: undefined,
 		joinWarning: undefined,
 		gameConnection: CONNECTION_STATE.DISCONNECT,
+		password: '',
+	},
+	setPassword(password) {
+		this.state.password = password;
+		// if localstorage password is the same as server password, redirect user to homepage
+		// if (localStorage.password == password) {
+		// this.setView(VIEW.HOME);
+		// }
 	},
 	setUsername(username) {
 		this.state.username = username;
@@ -70,6 +78,7 @@ const Store = {
 	submitCreateGame,
 	submitJoinGame,
 	submitLeaveGame,
+	submitPassword,
 	submitStartGame,
 	submitStroke,
 	submitNextRound,
@@ -99,6 +108,15 @@ function handleSocket(messageName, handler, errHandler) {
 		}
 	});
 }
+handleSocket(
+	MESSAGE.ACCESS,
+	function(data) {
+		Store.setPassword(data.password);
+	},
+	function(errMsg) {
+		Store.setWarning('accessWarning', errMsg);
+	}
+);
 handleSocket(
 	MESSAGE.CREATE_ROOM,
 	function(data) {
@@ -163,6 +181,9 @@ function submitJoinGame(roomCode, username) {
 }
 function submitLeaveGame() {
 	socket.emit(MESSAGE.LEAVE_ROOM, {});
+}
+function submitPassword() {
+	socket.emit(MESSAGE.ACCESS, {});
 }
 function submitStartGame() {
 	socket.emit(MESSAGE.START_GAME, {});
