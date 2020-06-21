@@ -12,6 +12,11 @@ const usernameMaxLength = 20;
 
 const SCHEMA = {};
 
+SCHEMA[MESSAGE.ACCESS] = {
+	$id: MESSAGE.ACCESS,
+	properties: {},
+	required: [],
+};
 SCHEMA[MESSAGE.CREATE_ROOM] = {
 	$id: MESSAGE.CREATE_ROOM,
 	properties: {

@@ -91,6 +91,10 @@ input[type="number"] {
 	}
 }
 
+.password-input {
+    width: 20em;
+}
+
 @media screen and (max-width: 425px) {
 	#in-game {
 		.btn {
